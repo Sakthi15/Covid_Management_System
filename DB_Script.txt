@@ -1,0 +1,122 @@
+create table Testing
+(Member_Name varchar(50) not null,
+Age Int not null,
+Aadhar_Number varchar(15) primary key not null,
+Contact_Number varchar(10) not null,
+Gender Varchar(50) not null,
+Address varchar(100) not null)
+
+create table Effected
+(SNo int identity(1,1),
+Member_Name varchar(50) not null,
+Aadhar varchar(15) primary key not null ,
+Mobile_Number varchar(15) not null,
+Effected_date varchar(30) not null)
+drop table Death
+
+create table Recovered
+(SNo int identity(1,1),
+Member_Name varchar(50) not null,
+Aadhar varchar(15) primary key not null ,
+Mobile_Number varchar(15) not null,
+Recovery_date varchar(30) not null)
+
+create table Registration_Vaccine
+(
+ID int identity(1,1),
+Member_Name varchar(20) not null,
+Age int not null,
+Aadhar_Number varchar(15) primary key not null,
+Mobile_Number varchar(10) not null,
+Gender varchar(10) not null,
+Vaccine_Name varchar(50) not null,
+Address varchar(50) not null
+)
+
+create table Vaccination
+(SNo int identity(1,1) ,
+Member_Name varchar(50) not null,
+Aadhar varchar(15) primary key not null ,
+Mobile_Number varchar(15) not null,
+Vaccination_date varchar(30) not null)
+
+create table Death
+(SNo int identity(1,1),
+Member_Name varchar(50) not null,
+Aadhar varchar(15) primary key not null ,
+Mobile_Number varchar(15) not null,
+Death_date varchar(30) not null)
+
+--------------------------------------------------------------------------------------------------------------
+
+create procedure Insert_Testing
+(@Member_Name varchar(50),
+@Age Int ,
+@Aadhar_Number varchar(15),
+@Contact_Number varchar(10) ,
+@Gender Varchar(50) ,
+@Address varchar(100) )
+as
+begin
+insert into Testing values(@Member_Name,@Age,@Aadhar_Number,@Contact_Number,@Gender,@Address)
+end
+
+create procedure Insert_Registration_Vaccine
+(
+
+@Member_Name varchar(20),
+@Age int ,
+@Aadhar_Number varchar(15) ,
+@Mobile_Number varchar(10) ,
+@Gender varchar(10),
+@Vaccine_Name varchar(50),
+@Address varchar(50)
+)
+as
+begin
+insert into Registration_Vaccine values(@Member_Name,@Age,@Aadhar_Number,@Mobile_Number,@Gender,@Vaccine_Name,@Address)
+end
+
+create procedure Insert_Effected
+(
+@Member_Name varchar(50),
+@Aadhar varchar(15),
+@Mobile_Number varchar(15),
+@Effected_date varchar(30) )
+as
+begin
+insert into Effected values(@Member_Name,@Aadhar,@Mobile_Number,@Effected_date)
+end
+
+create procedure Insert_Recovered
+(
+@Member_Name varchar(50),
+@Aadhar varchar(15),
+@Mobile_Number varchar(15),
+@Recovery_date varchar(30))
+as
+begin
+insert into Recovered values(@Member_Name,@Aadhar,@Mobile_Number,@Recovery_date)
+end
+
+create procedure Insert_Death
+(
+@Member_Name varchar(50),
+@Aadhar varchar(15),
+@Mobile_Number varchar(15),
+@Death_date varchar(30))
+as
+begin
+insert into Death values(@Member_Name,@Aadhar,@Mobile_Number,@Death_date)
+end
+
+create procedure Insert_Vaccine
+(
+@Member_Name varchar(50),
+@Aadhar varchar(15),
+@Mobile_Number varchar(15),
+@Vaccination_date varchar(30))
+as
+begin
+insert into Vaccination values(@Member_Name,@Aadhar,@Mobile_Number,@Vaccination_date)
+end
